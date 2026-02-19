@@ -1,0 +1,5 @@
+{
+  "name": "ProManage",
+  "description": "Enterprise-level Project Status Management System with role-based dashboards, Kanban boards, and real-time analytics.",
+  "requestFramePermissions": []
+}
