@@ -19,7 +19,7 @@ export function getStatusColor(status: string) {
     case 'Pending':
       return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400';
     case 'Active':
-    case 'In Progress':
+    case 'In-Progress':
       return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400';
     case 'Testing':
     case 'Review':
@@ -29,7 +29,7 @@ export function getStatusColor(status: string) {
       return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400';
     case 'Maintenance':
       return 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400';
-    case 'Blocked':
+    case 'Cancelled':
       return 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400';
     case 'On Hold':
     case 'Postponed':
@@ -44,14 +44,14 @@ export function getStatusColor(status: string) {
 export function getPriorityColor(priority: string) {
   switch (priority) {
     case 'Low':
-      return 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400';
+      return 'text-slate-700 dark:bg-slate-800 dark:text-slate-400';
     case 'Medium':
-      return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400';
+      return 'text-blue-700 dark:bg-blue-900/30 dark:text-blue-400';
     case 'High':
-      return 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400';
+      return 'text-amber-700 dark:bg-amber-900/30 dark:text-amber-400';
     case 'Urgent':
-      return 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400';
+      return 'text-rose-700 dark:bg-rose-900/30 dark:text-rose-400';
     default:
-      return 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400';
+      return 'text-slate-700 dark:bg-slate-800 dark:text-slate-400';
   }
 }

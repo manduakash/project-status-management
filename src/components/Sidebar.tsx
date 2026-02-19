@@ -26,7 +26,7 @@ export const Sidebar = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white">
             <FolderKanban size={24} />
           </div>
-          <span className="ml-3 text-xl font-bold tracking-tight text-slate-900 dark:text-white">ProManage</span>
+          <span className="ml-3 text-xl font-bold tracking-tight text-slate-900 dark:text-white">WorkFlux</span>
         </div>
 
         <nav className="flex-1 space-y-1">

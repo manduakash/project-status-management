@@ -19,9 +19,9 @@ export enum ProjectStatus {
 
 export enum TaskStatus {
   PENDING = "Pending",
-  IN_PROGRESS = "In Progress",
+  IN_PROGRESS = "In-Progress",
   REVIEW = "Review",
-  BLOCKED = "Blocked",
+  CANCELLED = "Cancelled",
   COMPLETED = "Completed",
   POSTPONED = "Postponed",
 }

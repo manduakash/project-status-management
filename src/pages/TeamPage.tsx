@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStore } from '../store/useStore';
 import { UserRole } from '../types';
-import { Users, Mail, Phone, Shield, MoreHorizontal, Plus, X } from 'lucide-react';
+import { Users, Mail, Phone, Shield, MoreHorizontal, Plus, X, Trash2, PenSquare } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import toast from 'react-hot-toast';
@@ -53,21 +53,6 @@ export const TeamPage = () => {
                   <p className="text-xs text-slate-500 dark:text-slate-400">@{user.username}</p>
                 </div>
               </div>
-              {canManage && user.id !== currentUser?.id && (
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="text-rose-600 hover:bg-rose-50 hover:text-rose-700"
-                  onClick={() => {
-                    if (confirm('Are you sure you want to remove this user?')) {
-                      deleteUser(user.id);
-                      toast.success('User removed');
-                    }
-                  }}
-                >
-                  <X size={20} />
-                </Button>
-              )}
             </div>
 
             <div className="mt-6 space-y-3">
@@ -86,8 +71,13 @@ export const TeamPage = () => {
             </div>
 
             <div className="mt-6 flex gap-2">
-              <Button variant="outline" className="flex-1">View Profile</Button>
-              <Button variant="outline" className="flex-1">Message</Button>
+              <Button variant="outline" className="flex-1 text-xs gap-1 group cursor-pointer" onClick={() => setIsModalOpen(true)}><PenSquare size="12" className="group-hover:text-amber-500" /> Edit</Button>
+              <Button variant="outline" className="flex-1 text-xs gap-1 group hover:bg-red-50 cursor-pointer" onClick={() => {
+                if (confirm('Are you sure you want to remove this user?')) {
+                  deleteUser(user.id);
+                  toast.success('User removed');
+                }
+              }}><Trash2 size="12" className="group-hover:text-red-500" /> Delete</Button>
             </div>
           </div>
         ))}
@@ -105,23 +95,23 @@ export const TeamPage = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <Input 
-                label="Full Name" 
-                required 
+              <Input
+                label="Full Name"
+                required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="John Doe"
               />
-              <Input 
-                label="Username" 
-                required 
+              <Input
+                label="Username"
+                required
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                 placeholder="johndoe"
               />
               <div className="space-y-1.5">
                 <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Role</label>
-                <select 
+                <select
                   className="flex h-10 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900"
                   value={formData.role}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value as UserRole })}

@@ -5,6 +5,7 @@ import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
 import { FolderKanban, Lock, User } from 'lucide-react';
 import toast from 'react-hot-toast';
+import bgVideo from "./bg.mp4";
 
 export const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -23,13 +24,34 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 dark:bg-slate-950">
-      <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-xl dark:bg-slate-900 dark:shadow-2xl">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={bgVideo} type="video/mp4" />
+      </video>
+
+      {/* Blur Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-xs"></div>
+
+      {/* Login Card */}
+      <div className="relative z-10 w-full max-w-md space-y-8 rounded-2xl bg-white/90 p-8 shadow-2xl backdrop-blur-lg dark:bg-slate-900/80">
+
+        {/* Your existing content unchanged below */}
+
         <div className="text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-none">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-lg">
             <FolderKanban size={32} />
           </div>
-          <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 dark:text-white">ProManage</h2>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            NexIntel Synergy
+          </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
             Enterprise Project Status Management
           </p>
@@ -86,14 +108,14 @@ export const LoginPage = () => {
           </Button>
         </form>
 
-        <div className="mt-6 rounded-lg bg-slate-50 p-4 text-xs text-slate-500 dark:bg-slate-800/50 dark:text-slate-400">
+        {/* <div className="mt-6 rounded-lg bg-slate-50 p-4 text-xs text-slate-500 dark:bg-slate-800/50 dark:text-slate-400">
           <p className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Demo Accounts:</p>
           <ul className="space-y-1">
             <li>Management: <span className="font-mono">admin</span></li>
             <li>Team Lead: <span className="font-mono">lead1</span></li>
             <li>Developer: <span className="font-mono">dev1</span> / <span className="font-mono">dev2</span></li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

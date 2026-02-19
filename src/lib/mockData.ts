@@ -126,7 +126,7 @@ export const MOCK_TASKS: Task[] = [
     description: "Connect the React frontend to the new AI endpoints.",
     assignedDeveloperId: "u4",
     deadline: "2024-06-01",
-    status: TaskStatus.BLOCKED,
+    status: TaskStatus.CANCELLED,
     progressPercentage: 40,
     createdAt: "2024-04-10",
     updatedAt: "2024-04-25",
